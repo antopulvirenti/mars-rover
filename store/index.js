@@ -7,6 +7,8 @@ const [useStore] = create(persist((set) => ({
         set((state) => ({ favoritePhotos: [...state.favoritePhotos, photo] })),
     totalCameraPhotos: 0,
     setTotalCameraPhotos: (totalPhotos) => set({ totalCameraPhotos: totalPhotos }),
+    amountPages: 0,
+    setAmountPages: (pages) => set({ amountPages: pages }),
 })));
 
 

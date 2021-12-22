@@ -3,13 +3,13 @@ import Image from "next/image";
 
 const Pagination = ({
     page,
-    totalPages,
+    amountPages,
     prevPage,
     nextPage,
     camera,
     totalCameraPhotos,
 }) => {
-    const pages = camera  ? totalCameraPhotos : totalPages
+    const totalPages = camera  ? totalCameraPhotos : amountPages
     return (
         <div className="flex items-center justify-center col-span-10 py-10">
             {page > 1 && (
@@ -25,9 +25,9 @@ const Pagination = ({
                 </Link>
             )}
             <p className="w-32 text-2xl text-center">
-                {page} / {pages}
+                {page} / {totalPages}
             </p>
-            {page !== pages && (
+            {page !== totalPages && (
                 <Link href={nextPage}>
                     <a className="mt-2">
                         <Image

@@ -17,8 +17,8 @@ const Home = ({ rovers }) => {
     const [error, setError] = useState({ sol: false, earthDate: false });
 
     const pageNavigation = {
-        sol: `/rover/${params.category}/photos/sol=${sol}/p-1`,
-        earthDate: `/rover/${params.category}/photos/earth_date=${earthDate}/p-1`,
+        sol: `/rover/${params.category}/photos/sol=${sol}`,
+        earthDate: `/rover/${params.category}/photos/earth_date=${earthDate}`,
     };
 
     const handleClick = (name, maxSol, maxDate, minDate) => {
@@ -46,7 +46,7 @@ const Home = ({ rovers }) => {
             setError({ ...error, earthDate: true });
         }
     };
-    console.log(sol, earthDate);
+    
     return (
         <div>
             <Head>

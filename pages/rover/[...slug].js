@@ -23,15 +23,23 @@ const Photos = ({
     const sortPhotos = photos.sort((a, b) => {
         return a.id - b.id;
     });
-    const { addFavoritePhoto, setTotalCameraPhotos, totalCameraPhotos } =
-        useStore();
+    const {
+        addFavoritePhoto,
+        setTotalCameraPhotos,
+        totalCameraPhotos,
+        amountPages,
+        setAmountPages,
+    } = useStore();
 
     useEffect(() => {
         if (cameraPhotos != 0) {
             setTotalCameraPhotos(cameraPhotos);
         }
+        if(totalPages != 0){
+            setAmountPages(totalPages)
+        }
     }, [slug]);
-
+    
     return (
         <>
             <div className="relative mt-10 md:flex md:max-h-72">
@@ -72,7 +80,7 @@ const Photos = ({
 
                         <Pagination
                             page={page}
-                            totalPages={totalPages}
+                            amountPages={amountPages}
                             nextPage={nextPage}
                             prevPage={prevPage}
                             camera={camera}
@@ -117,6 +125,7 @@ export const getStaticProps = async (ctx) => {
             return 0;
         }
     };
+
     const page = findSlug("p-", slug)
         ? findSlug("p-", slug).replace(regex, "")
         : 1;
@@ -126,15 +135,20 @@ export const getStaticProps = async (ctx) => {
         prevPage: prevPage(slug, page, regex),
     };
 
-    const totalPages = Math.ceil(rover[0].total_photos / 25);
-
+    const totalPages = () => {
+        if (!findSlug("p-", slug)) {
+            return Math.ceil(photos.length / 25);
+        } else {
+            return 0;
+        }
+    };
     return {
         props: {
             cameras: rover[0].cameras,
             cameraPhotos: cameraPhotos(),
             photos,
             page,
-            totalPages,
+            totalPages: totalPages(),
             nextPage: pageNavigation.nextPage,
             prevPage: pageNavigation.prevPage,
             category,
