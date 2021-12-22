@@ -128,9 +128,9 @@ const Home = ({ rovers }) => {
                     </div>
                     <Link
                         href={
-                            sol != 0
+                            sol != 0 && !error.sol
                                 ? pageNavigation.sol
-                                : earthDate != 0
+                                : earthDate != 0 && !error.earthDate
                                 ? pageNavigation.earthDate
                                 : ""
                         }
