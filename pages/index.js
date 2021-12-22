@@ -39,11 +39,15 @@ const Home = ({ rovers }) => {
     const validateSol = (input) => {
         if (input < 1 || input > params.maxSol) {
             setError({ ...error, sol: true });
+        }else{
+            setError({ ...error, sol: false });
         }
     };
     const validateEarthDate = (input) => {
         if (input < params.minEarthDate || input > params.maxEarthDate) {
             setError({ ...error, earthDate: true });
+        }else{
+            setError({ ...error, earthDate: false });
         }
     };
     
@@ -96,6 +100,7 @@ const Home = ({ rovers }) => {
                             onChange={() => {
                                 setSol(event.target.value);
                                 validateSol(event.target.value);
+                                console.log()
                             }}
                         />
                         {error.sol && (
@@ -107,20 +112,19 @@ const Home = ({ rovers }) => {
                     <div className="col-span-12 lg:col-span-6">
                         <p className="font-bold">Earth date</p>
                         <input
-                            type="text"
-                            placeholder={`Write a number between ${params.minEarthDate} and ${params.maxEarthDate}`}
+                            type="date"
                             className="w-full p-2 border rounded-md border-cyan-600"
                             onChange={() => {
                                 setEarthDate(event.target.value);
                                 validateEarthDate(event.target.value);
+                                console.log(event.target.value < params.minEarthDate || event.target.value > params.maxEarthDate)
                             }}
                         />
-                        {error.earthDate && (
-                            <p className="text-red-500">
+                        
+                            <p className={cx("text-sm text-center",{"text-red-500":error.earthDate, "text-gray-600": !error.earthDate})}>
                                 Write a number between {params.minEarthDate} and{" "}
                                 {params.maxEarthDate}
                             </p>
-                        )}
                     </div>
                     <Link
                         href={
