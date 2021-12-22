@@ -116,7 +116,7 @@ export const getStaticProps = async (ctx) => {
         if (r.name.toLowerCase() === category) {
             return r;
         }
-    });
+    }).filter(Boolean);
 
     const cameraPhotos = () => {
         if (findSlug("c-", slug) && !findSlug("p-", slug)) {
@@ -142,6 +142,7 @@ export const getStaticProps = async (ctx) => {
             return 0;
         }
     };
+
     return {
         props: {
             cameras: rover[0].cameras,
