@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./pages/**/*.{js,jsx}", "./components/**/*.{js,jsx}"],
+  content: ["./src/**/*.{js,jsx}", "./components/**/*.{js,jsx}"],
   theme: {
     screens: {
       xs: "360px",
