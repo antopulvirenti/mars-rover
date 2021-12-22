@@ -23,6 +23,7 @@ const Header = () => {
                 {headerLinks.map(({ link, href }) => {
                     return (
                         <button
+                            key={link}
                             className={cx(
                                 "first:pr-6 text-lg md:text-xl hover:underline hover:text-cyan-600",
                                 { underline: link === linkActive }
