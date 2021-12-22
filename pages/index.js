@@ -95,6 +95,7 @@ const Home = ({ rovers }) => {
                         <p className="font-bold">Sol year</p>
                         <input
                             type="text"
+                            disabled={earthDate != 0}
                             placeholder={`Write a number between 1 and ${params.maxSol}`}
                             className="w-full p-2 border rounded-md border-cyan-600"
                             onChange={() => {
@@ -113,6 +114,7 @@ const Home = ({ rovers }) => {
                         <p className="font-bold">Earth date</p>
                         <input
                             type="date"
+                            disabled={sol != 0}
                             className="w-full p-2 border rounded-md border-cyan-600"
                             onChange={() => {
                                 setEarthDate(event.target.value);
