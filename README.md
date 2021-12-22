@@ -25,3 +25,4 @@ Then you can run the development server:
 # Run the development server
 $ yarn dev
 ```
+If you want to check the site in a productive environment you can enter this link -> [Mars Rover website](https://mars-rover-rho.vercel.app)
