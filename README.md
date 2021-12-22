@@ -1,34 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Set Up
+```bash
+# Clone this repository
+$ git clone https://github.com/antopulvirenti/mars-rover.git
 
+# Go into the repository
+$ cd mars-rover
+
+# Install dependencies
+$ yarn install
+```
 ## Getting Started
 
-First, run the development server:
+
+First, generate a .env file with the following variable:
+```bash
+API_URL = https://api.nasa.gov/mars-photos/api/v1/rovers
+```
+You will also need the `API_KEY` variable. You can use `DEMO_KEY` as a value or generate your own Key on the NASA website by following these steps:
+1. Enter the [NASA website](https://api.nasa.gov).
+2. Find the Generate API Key section and complete the form.
+<img width="720" alt="Captura de Pantalla 2021-12-22 a la(s) 13 09 21" src="https://user-images.githubusercontent.com/72531489/147121812-535e4f1c-c86b-4320-83b5-516b96f48cd3.png">
+3. It will redirect you to another screen where the value that we will use for our variable will be.
+
+##
+Then you can run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
+# Run the development server
+$ yarn dev
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
